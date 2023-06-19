@@ -1,0 +1,73 @@
+body {
+  background: rgb(226, 251, 255, 0.4);
+  font-family: "Patrick Hand", cursive;
+}
+.search-section {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  padding: 20px 0px;
+  border-bottom: 1px;
+  border-bottom-color: rgb(17, 63, 103, 0.3);
+  border-bottom-style: solid;
+}
+
+ul {
+  list-style-type: none;
+  font-size: 17px;
+  padding-left: 0;
+}
+img {
+  display: block;
+  margin: 0 auto;
+}
+.city-input {
+  color: rgb(17, 63, 103);
+  text-transform: capitalize;
+}
+
+.capitalize {
+  text-transform: capitalize;
+}
+.weather_box {
+  display: block;
+  margin-top: 50px;
+  padding: 20px;
+  border-style: groove;
+  border-radius: 15px;
+  border-color: rgb(17, 63, 103);
+  background: linear-gradient(
+    72.5deg,
+    rgb(0, 175, 255, 0.9) 27.9%,
+    rgb(0, 224, 254, 0.4) 84.2%
+  );
+  box-shadow: rgb(17, 63, 103, 0.3) 2px 4px 2px 2px;
+}
+.current_weather {
+  padding: 25px 25px;
+}
+.row {
+  margin-right: 3px;
+}
+.sunny {
+  width: 90px;
+  display: inline;
+}
+.actual_number {
+  font-size: 70px;
+}
+.units {
+  position: relative;
+  top: -34px;
+  font-size: 18px;
+}
+.forecast {
+  padding-top: 40px;
+}
+.sunny_forecast {
+  width: 50px;
+}
+.footer {
+  font-size: 12px;
+  margin-top: 10px;
+}
