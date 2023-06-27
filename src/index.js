@@ -47,6 +47,13 @@ function showCurrentTemperature(response) {
   let cityResult = response.data.name;
   let countryResult = response.data.sys.country;
   updateCitySearch.innerHTML = `${cityResult}, ${countryResult}`;
+  //Icon
+  let currentIcon = document.querySelector("#icon");
+  currentIcon.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+  );
+  currentIcon.setAttribute("alt", response.data.weather[0].main);
   //Humidity
   let currentHumidity = document.querySelector("#humidity");
   currentHumidity.innerHTML = response.data.main.humidity;
