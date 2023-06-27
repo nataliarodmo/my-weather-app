@@ -28,8 +28,8 @@ let dateNow = new Date();
 currentDate.innerHTML = addCurrentDate(dateNow);
 
 function search(city) {
-  let apiKey = "8ef06a31801fb0f16331001137970b0d";
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${apiKey}`;
+  let apiKey = "cf0o37c8aaf1022e4beeb7d4de3tca0a";
+  let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=metric`;
   axios.get(apiUrl).then(showCurrentTemperature);
 }
 
@@ -40,30 +40,28 @@ function handleSubmit(event) {
   search(city);
 }
 function showCurrentTemperature(response) {
+  console.log(response.data);
   //Temperature
   let currentTemperature = document.querySelector("#current-temperature");
-  currentTemperature.innerHTML = Math.round(response.data.main.temp);
+  currentTemperature.innerHTML = Math.round(response.data.temperature.current);
   // City
-  let cityResult = response.data.name;
-  let countryResult = response.data.sys.country;
+  let cityResult = response.data.city;
+  let countryResult = response.data.country;
   updateCitySearch.innerHTML = `${cityResult}, ${countryResult}`;
   //Icon
   let currentIcon = document.querySelector("#icon");
-  currentIcon.setAttribute(
-    "src",
-    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
-  );
-  currentIcon.setAttribute("alt", response.data.weather[0].main);
+  currentIcon.setAttribute("src", response.data.condition.icon_url);
+  currentIcon.setAttribute("alt", response.data.condition.icon);
   //Humidity
   let currentHumidity = document.querySelector("#humidity");
-  currentHumidity.innerHTML = response.data.main.humidity;
+  currentHumidity.innerHTML = response.data.temperature.humidity;
   //Wind
   let currentWind = document.querySelector("#wind");
   currentWind.innerHTML = Math.round(response.data.wind.speed);
 
   //Condition
   let currentCondition = document.querySelector("#description");
-  currentCondition.innerHTML = response.data.weather[0].main;
+  currentCondition.innerHTML = response.data.condition.description;
 }
 
 let formCitySearch = document.querySelector("#citySearch");
@@ -91,8 +89,8 @@ function clickCurrentLocation(event) {
 function showPosition(position) {
   let latitude = position.coords.latitude;
   let longitude = position.coords.longitude;
-  let apiKey = "8ef06a31801fb0f16331001137970b0d";
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&units=metric&appid=${apiKey}`;
+  let apiKey = "cf0o37c8aaf1022e4beeb7d4de3tca0a";
+  let apiUrl = `https://api.shecodes.io/weather/v1/current?lat=${latitude}&lon=${longitude}&key=${apiKey}&units=metric`;
   axios.get(apiUrl).then(showCurrentTemperature);
 }
 
