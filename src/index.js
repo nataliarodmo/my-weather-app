@@ -41,28 +41,22 @@ function handleSubmit(event) {
 }
 function showCurrentTemperature(response) {
   //Temperature
-  let currentTemperature = Math.round(response.data.main.temp);
-  let updateCurrentTemperature = document.querySelector("#current-temperature");
-  updateCurrentTemperature.innerHTML = currentTemperature;
+  let currentTemperature = document.querySelector("#current-temperature");
+  currentTemperature.innerHTML = Math.round(response.data.main.temp);
   // City
   let cityResult = response.data.name;
   let countryResult = response.data.sys.country;
   updateCitySearch.innerHTML = `${cityResult}, ${countryResult}`;
   //Humidity
-  let currentHumidity = response.data.main.humidity;
-  currentHumidity = `Humidity: ${currentHumidity}%`;
-  let updateCurrentHumidity = document.querySelector("#humidity");
-  updateCurrentHumidity.innerHTML = currentHumidity;
+  let currentHumidity = document.querySelector("#humidity");
+  currentHumidity.innerHTML = response.data.main.humidity;
   //Wind
-  let currentWind = Math.round(response.data.wind.speed);
-  currentWind = `Wind: ${currentWind} Km/h`;
-  let updateCurrentWind = document.querySelector("#wind");
-  updateCurrentWind.innerHTML = currentWind;
-  console.log(response);
+  let currentWind = document.querySelector("#wind");
+  currentWind.innerHTML = Math.round(response.data.wind.speed);
+
   //Condition
-  let currentCondition = response.data.weather[0].main;
-  let updateCurrentCondition = document.querySelector("#description");
-  updateCurrentCondition.innerHTML = currentCondition;
+  let currentCondition = document.querySelector("#description");
+  currentCondition.innerHTML = response.data.weather[0].main;
 }
 
 let formCitySearch = document.querySelector("#citySearch");

@@ -22,11 +22,10 @@ img {
 }
 .city-input {
   color: rgb(17, 63, 103);
-  text-transform: capitalize;
 }
 
-.capitalize {
-  text-transform: capitalize;
+.capitalize::first-letter {
+  text-transform: uppercase;
 }
 .weather_box {
   display: block;
