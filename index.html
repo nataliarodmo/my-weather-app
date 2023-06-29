@@ -59,14 +59,16 @@
             <li class="capitalize" id="description"></li>
           </ul>
         </div>
-        <div class="col-6 text-center">
-          <img class="main_icon" src="" alt="weather" id="icon" />
-          <span class="actual_number" id="current-temperature"> 17 </span>
-          <span class="units">
-            <a href="#" id="celsius-link"> ºC</a>
-            <!--|
-				<a href=# id = "fahrenheit-link"> ºF</a> -->
-          </span>
+        <div class="col-7 text-center">
+          <div class="clearfix weather-temperature">
+              <img class="main_icon float-left" src="" alt="weather" id="icon"/>
+              <span class="actual_number" id="current-temperature"> </span>
+              <span class="units">
+                <a href="#" id="celsius-link" class="active"> ºC</a>
+                |
+                <a href="#" id="fahrenheit-link"> ºF</a>
+          
+          </div>
         </div>
       </div>
       <div class="row forecast">

@@ -62,25 +62,14 @@ function showCurrentTemperature(response) {
   //Condition
   let currentCondition = document.querySelector("#description");
   currentCondition.innerHTML = response.data.condition.description;
+
+  celsiusTemperature = response.data.temperature.current;
 }
 
 let formCitySearch = document.querySelector("#citySearch");
 let updateCitySearch = document.querySelector("#city");
 formCitySearch.addEventListener("submit", handleSubmit);
-search("Toronto");
-// F and C
-//function updateToCelsius(event) {
-//event.preventDefault();
-//let temperatureNumber = document.querySelector("#current-temperature");
-//temperatureNumber.innerHTML = 19;}
-//function updateToFahrenheit(event) {
-//event.preventDefault();
-//let temperatureNumber = document.querySelector("#current-temperature");
-//temperatureNumber.innerHTML = 66;}
-//let showCelsius = document.querySelector("#celsius-link");
-//let showFahrenheit = document.querySelector("#fahrenheit-link");
-//showCelsius.addEventListener("click", updateToCelsius);
-//showFahrenheit.addEventListener("click", updateToFahrenheit);
+
 //Current Location
 function clickCurrentLocation(event) {
   event.preventDefault();
@@ -93,6 +82,29 @@ function showPosition(position) {
   let apiUrl = `https://api.shecodes.io/weather/v1/current?lat=${latitude}&lon=${longitude}&key=${apiKey}&units=metric`;
   axios.get(apiUrl).then(showCurrentTemperature);
 }
-
+// Celcious to Farenhite
+function updateToCelsius(event) {
+  event.preventDefault();
+  let temperatureNumber = document.querySelector("#current-temperature");
+  // remove active class from F put to C
+  showFahrenheit.classList.remove("active");
+  showCelsius.classList.add("active");
+  temperatureNumber.innerHTML = Math.round(celsiusTemperature);
+}
+function updateToFahrenheit(event) {
+  event.preventDefault();
+  let temperatureNumber = document.querySelector("#current-temperature");
+  // remove active class from celcious put to F
+  showCelsius.classList.remove("active");
+  showFahrenheit.classList.add("active");
+  let fahrenheitTemperature = (celsiusTemperature * 9) / 5 + 32;
+  temperatureNumber.innerHTML = Math.round(fahrenheitTemperature);
+}
+let showCelsius = document.querySelector("#celsius-link");
+let showFahrenheit = document.querySelector("#fahrenheit-link");
+showFahrenheit.addEventListener("click", updateToFahrenheit);
+showCelsius.addEventListener("click", updateToCelsius);
 let submitCurrentLocation = document.querySelector("#current-location");
 submitCurrentLocation.addEventListener("click", clickCurrentLocation);
+let celsiusTemperature = null;
+search("Toronto");

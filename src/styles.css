@@ -44,21 +44,33 @@ img {
 .current_weather {
   padding: 25px 25px;
 }
+.units {
+  position: relative;
+  top: -30px;
+  font-size: 18px;
+}
+.units .active {
+  color: rgb(17, 63, 103);
+  cursor: default;
+  text-decoration: none;
+}
+.units .active:hover {
+  text-decoration: none;
+}
 .row {
   margin-right: 3px;
 }
 .main_icon {
-  width: 90px;
-  display: inline;
+  height: 95px;
+  width: 95px;
+  margin-bottom: 20px;
+  display: inline-block;
 }
 .actual_number {
   font-size: 70px;
+  padding-bottom: 0px;
 }
-.units {
-  position: relative;
-  top: -34px;
-  font-size: 18px;
-}
+
 .forecast {
   padding-top: 40px;
 }
@@ -71,7 +83,4 @@ img {
   margin-top: 5px;
   margin-left: 140px;
   margin-right: 50px;
-}
-a:link {
-  text-decoration: none;
 }
