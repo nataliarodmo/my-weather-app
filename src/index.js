@@ -64,6 +64,17 @@ function handleSubmit(event) {
   let city = input.value;
   search(city);
 }
+
+function showForecast(response) {
+  console.log(response.data.daily);
+}
+
+function getForecast(city) {
+  console.log(city);
+  let apiKey = "cf0o37c8aaf1022e4beeb7d4de3tca0a";
+  let apiUrl = `https://api.shecodes.io/weather/v1/forecast?query=${city}&key=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(showForecast);
+}
 function showCurrentTemperature(response) {
   console.log(response.data);
   //Temperature
@@ -88,6 +99,7 @@ function showCurrentTemperature(response) {
   let currentCondition = document.querySelector("#description");
   currentCondition.innerHTML = response.data.condition.description;
   celsiusTemperature = response.data.temperature.current;
+  getForecast(response.data.city);
 }
 
 let formCitySearch = document.querySelector("#citySearch");
@@ -133,4 +145,4 @@ submitCurrentLocation.addEventListener("click", clickCurrentLocation);
 let celsiusTemperature = null;
 
 displayForecast();
-search("Toronto");
+search("Vancouver");
