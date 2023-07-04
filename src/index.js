@@ -27,6 +27,31 @@ let currentDate = document.querySelector("#date");
 let dateNow = new Date();
 currentDate.innerHTML = addCurrentDate(dateNow);
 
+function displayForecast() {
+  let forecastElement = document.querySelector("#forecast");
+  let forecastHTML = `<div class="row">`;
+  let days = ["Thu", "Fri", "Sat", "Sun"];
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      ` <div class="col text-center">
+            <div class="weather-forecast-day">${day}</div>
+            <img
+                class="sunny_forecast"
+                src="Images/cloudy.png"
+                alt="weather"
+              />
+            <div class="weather-forecast-temperature"> 
+              <span class="weather-forecast-temperature-max">14º </span>
+              <span class="weather-forecast-temperature-min">5º </span>
+            </div>
+          </div>
+    `;
+  });
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
+}
+
 function search(city) {
   let apiKey = "cf0o37c8aaf1022e4beeb7d4de3tca0a";
   let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=metric`;
@@ -62,7 +87,6 @@ function showCurrentTemperature(response) {
   //Condition
   let currentCondition = document.querySelector("#description");
   currentCondition.innerHTML = response.data.condition.description;
-
   celsiusTemperature = response.data.temperature.current;
 }
 
@@ -107,4 +131,6 @@ showCelsius.addEventListener("click", updateToCelsius);
 let submitCurrentLocation = document.querySelector("#current-location");
 submitCurrentLocation.addEventListener("click", clickCurrentLocation);
 let celsiusTemperature = null;
+
+displayForecast();
 search("Toronto");
