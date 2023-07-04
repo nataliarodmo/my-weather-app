@@ -74,6 +74,16 @@ img {
 .forecast {
   padding-top: 40px;
 }
+.weather-forecast-day {
+  opacity: 0.7;
+  font-size: 18px;
+}
+.weather-forecast-temperature {
+  font-size: 16px;
+}
+.weather-forecast-temperature-min {
+  opacity: 0.6;
+}
 .sunny_forecast {
   width: 50px;
 }
