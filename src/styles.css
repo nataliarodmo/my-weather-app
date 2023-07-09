@@ -4,28 +4,13 @@ body {
 }
 ul {
   list-style-type: none;
-  font-size: 17px;
+  font-size: 20px;
   padding-left: 0;
+  opacity: 0.8;
 }
 img {
   display: block;
   margin: 0 auto;
-}
-.search-section {
-  display: flex;
-  flex-flow: row wrap;
-  align-items: center;
-  padding: 20px 0px;
-  border-bottom: 1px;
-  border-bottom-color: rgb(17, 63, 103, 0.3);
-  border-bottom-style: solid;
-}
-.city-input {
-  color: rgb(17, 63, 103);
-}
-
-.capitalize::first-letter {
-  text-transform: uppercase;
 }
 .weather_box {
   display: block;
@@ -41,28 +26,63 @@ img {
   );
   box-shadow: rgb(17, 63, 103, 0.3) 2px 4px 2px 2px;
 }
+.form-control:focus{
+  border:rgb(17, 63, 103, 0.3)
+}
+.search-section {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  padding: 20px 0px;
+  border-bottom: 1px;
+  border-bottom-color: rgb(17, 63, 103, 0.3);
+  border-bottom-style: solid;
+  autofocus
+}
+.city-input {
+  color: rgb(17, 63, 103);
+}
+.btn-primary {
+  background-color: rgb(17, 63, 103);
+  border-color: rgb(17, 63, 103, 0.6);
+  transition: all 200ms ease-in-out;
+}
+.btn-primary:hover {
+  background-color: rgb(17, 63, 103, 0.7);
+  border-color: rgb(17, 63, 103, 0.6);
+}
+.btn-outline-primary {
+  border-color: rgb(17, 63, 103);
+  color: rgb(17, 63, 103);
+  transition: all 300ms ease-in-out;
+}
+.btn-outline-primary:hover {
+  background-color: rgb(17, 63, 103);
+  border-color: rgb(17, 63, 103, 0.6);
+  color: #fff;
+}
+.capitalize::first-letter {
+  text-transform: uppercase;
+}
+
 .current_weather {
   padding: 25px 25px;
+  color: rgb(17, 63, 103);
+}
+.weather-temperature {
+  margin: 25px 0;
 }
 .units {
   position: relative;
   top: -30px;
   font-size: 18px;
 }
-.units .active {
-  color: rgb(17, 63, 103);
-  cursor: default;
-  text-decoration: none;
-}
-.units .active:hover {
-  text-decoration: none;
-}
+
 .row {
   margin-right: 3px;
 }
 .main_icon {
-  height: 95px;
-  width: 95px;
+  width: 120px;
   margin-bottom: 20px;
   display: inline-block;
 }
@@ -72,25 +92,25 @@ img {
 }
 
 .weather-forecast {
-  padding-top: 40px;
+  padding-top: 10px;
+  color: rgb(17, 63, 103);
 }
 .weather-forecast-day {
   opacity: 0.7;
-  font-size: 18px;
+  font-size: 20px;
 }
 .weather-forecast-temperature {
-  font-size: 16px;
+  font-size: 18px;
 }
 .weather-forecast-temperature-min {
   opacity: 0.6;
 }
 .sunny_forecast {
-  width: 50px;
+  width: 70px;
 }
 .footer {
   padding: 5px 20px;
   font-size: 12px;
   margin-top: 5px;
-  margin-left: 140px;
-  margin-right: 50px;
+  margin-left: auto;
 }
