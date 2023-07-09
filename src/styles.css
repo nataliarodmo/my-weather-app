@@ -26,8 +26,8 @@ img {
   );
   box-shadow: rgb(17, 63, 103, 0.3) 2px 4px 2px 2px;
 }
-.form-control:focus{
-  border:rgb(17, 63, 103, 0.3)
+.form-control:focus {
+  border: rgb(17, 63, 103, 0.3);
 }
 .search-section {
   display: flex;
@@ -37,7 +37,6 @@ img {
   border-bottom: 1px;
   border-bottom-color: rgb(17, 63, 103, 0.3);
   border-bottom-style: solid;
-  autofocus
 }
 .city-input {
   color: rgb(17, 63, 103);
