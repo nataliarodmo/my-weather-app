@@ -83,13 +83,11 @@ function handleSubmit(event) {
 }
 
 function getForecast(city) {
-  console.log(city);
   let apiKey = "cf0o37c8aaf1022e4beeb7d4de3tca0a";
   let apiUrl = `https://api.shecodes.io/weather/v1/forecast?query=${city}&key=${apiKey}&units=metric`;
   axios.get(apiUrl).then(displayForecast);
 }
 function showCurrentTemperature(response) {
-  console.log(response.data);
   //Temperature
   let currentTemperature = document.querySelector("#current-temperature");
   currentTemperature.innerHTML = Math.round(response.data.temperature.current);
